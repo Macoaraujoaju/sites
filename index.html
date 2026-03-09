@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educação Financeira | Liberdade Financeira Garantida</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-dark: #0f1729;
+            --primary-blue: #1a52a5;
+            --success-green: #00d54b;
+            --accent-gold: #ffd700;
+            --light-bg: #f5f7fa;
+            --whatsapp-color: #25d366;
+            --text-dark: #1a1a1a;
+            --text-gray: #666666;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+        
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            color: var(--text-dark); 
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 { 
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .navbar-brand .text-success { color: var(--success-green) !important; }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+            padding: 80px 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 213, 75, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero .container { position: relative; z-index: 2; }
+
+        .badge-new {
+            background: linear-gradient(135deg, var(--success-green) 0%, #00b838 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .btn-primary-cta {
+            background: linear-gradient(135deg, var(--success-green) 0%, #00b838 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 213, 75, 0.3);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary-cta:hover {
+            background: linear-gradient(135deg, #00b838 0%, #009030 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 213, 75, 0.4);
+            color: white;
+        }
+
+        .btn-secondary-cta {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 0.85rem 1.8rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary-cta:hover {
+            background: white;
+            color: var(--primary-blue);
+        }
+
+        /* Float WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, var(--whatsapp-color) 0%, #0cc543 100%);
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 28px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            width: 65px;
+            height: 65px;
+            line-height: 65px;
+            animation: float 3s ease-in-out infinite;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Features Section */
+        .features-section {
+            background: var(--light-bg);
+            padding: 80px 0;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            height: 100%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-top: 5px solid var(--primary-blue);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-top-color: var(--success-green);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--success-green) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Courses Section */
+        .courses-section {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .course-card:hover {
+            border-color: var(--success-green);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .course-header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-dark) 100%);
+            padding: 2rem;
+            color: white;
+            text-align: center;
+        }
+
+        .course-badge {
+            display: inline-block;
+            background: var(--success-green);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-body {
+            padding: 2rem;
+        }
+
+        .course-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: var(--text-gray);
+        }
+
+        .course-feature i {
+            color: var(--success-green);
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+            padding: 80px 0;
+            color: white;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--success-green);
+            transform: translateY(-5px);
+        }
+
+        .testimonial-stars {
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            margin-top: 1rem;
+            color: var(--accent-gold);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--light-bg);
+            padding: 60px 0;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--success-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-gray);
+            font-weight: 600;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .title-accent {
+            color: var(--success-green);
+        }
+
+        /* CTA Section */
+        .cta-final {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: white;
+            padding: 2rem 0;
+            border-top: 2px solid var(--success-green);
+        }
+
+        footer p { margin: 0.3rem 0; }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in { animation: fadeInUp 0.6s ease; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .section-title { font-size: 1.8rem; }
+            .hero { padding: 60px 0; }
+            .stat-number { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5511999999999" class="whatsapp-float" target="_blank" title="Chamar via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">MENTOR<span class="text-success">PRO</span></a>
+            <div class="d-flex gap-2">
+                <a href="https://wa.me/5511999999999" class="btn btn-secondary-cta d-none d-md-block">Chamar Agora</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6">
+                    <div class="mb-3">
+                        <span class="badge-new"><i class="fas fa-fire me-2"></i>Vagas limitadas</span>
+                    </div>
+                    <h1 class="display-4 fw-800 mb-4" style="line-height: 1.2;">
+                        Derrube a <span class="title-accent">Inflação</span> e <span class="title-accent">Crie Riqueza</span> em 90 dias
+                    </h1>
+                    <p class="lead mb-4" style="color: rgba(255,255,255,0.9); font-size: 1.1rem;">
+                        Aprenda as estratégias dos maiores investidores do Brasil. Do zero ao seu primeiro investimento rentável com segurança e confiança.
+                    </p>
+                    <div class="d-flex gap-3 flex-wrap mb-4">
+                        <a href="https://wa.me/5511999999999" class="btn btn-primary-cta">
+                            <i class="fab fa-whatsapp me-2"></i>Análise Gratuita
+                        </a>
+                        <a href="#courses" class="btn btn-secondary-cta">
+                            Ver Cursos <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                    <p class="small" style="color: rgba(255,255,255,0.8);">
+                        <i class="fas fa-check-circle me-2"></i> 3.000+ Alunos já transformaram suas finanças
+                    </p>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block text-center">
+                    <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Crescimento Financeiro" class="img-fluid rounded-3 shadow-lg" style="max-height: 400px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-6">
+                    <div class="stat-box">
+                        <div class="stat-number">3000+</div>
+                        <div class="stat-label">Alunos Satisfeitos</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-box">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Taxa de Sucesso</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-box">
+                        <div class="stat-number">4.9★</div>
+                        <div class="stat-label">Avaliação Média</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="stat-box">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Suporte ao Aluno</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Por que somos diferentes?</h2>
+                <p class="section-subtitle">Tudo que você precisa para conquistar liberdade financeira</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 class="mb-2">Método Comprovado</h4>
+                        <p class="text-muted mb-0">Estratégias testadas por investidores profissionais com rentabilidade acima da média.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h4 class="mb-2">Módulos Estruturados</h4>
+                        <p class="text-muted mb-0">Conteúdo passo a passo desde conceitos básicos até estratégias avançadas de investimento.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4 class="mb-2">Mentoría Personalizada</h4>
+                        <p class="text-muted mb-0">Suporte direto via WhatsApp com especialistas financeiros experientes para tirar suas dúvidas.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h4 class="mb-2">Certificado Profissional</h4>
+                        <p class="text-muted mb-0">Receba seu certificado de conclusão reconhecido no mercado financeiro e educacional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses-section" id="courses">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Nossos <span class="title-accent">Cursos Disponíveis</span></h2>
+                <p class="section-subtitle">Escolha o caminho certo para sua jornada financeira</p>
+            </div>
+            <div class="row g-4">
+                <!-- Course 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <div class="course-badge">Iniciante</div>
+                            <h3 class="mb-3">Fundamentos Financeiros</h3>
+                            <h2 class="mb-0" style="font-size: 2.5rem;">R$ 97</h2>
+                            <p class="small mt-2" style="opacity: 0.9;">ou 3x de R$ 39</p>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-feature">
+                                <i class="fas fa-video"></i>
+                                <span><strong>12 Aulas</strong> em vídeo HD</span>
+                            </div>
+                            <div class="course-feature">
+                                <i class="fas fa-clock"></i>
+                                <span><strong>3 horas</strong> de conteúdo</span>
+                            </div>
+                            <div class="course-feature">
+                                <i class="fas fa-book"></i>
+                                <span><strong>Materiais</strong> complementares</span>
+                            </div>
+                            <div class="course-feature">
+                                <i class="fas fa-users"></i>
+                                <span>Acesso ao <strong>grupo exclusivo</strong></span>
+                            </div>
+                            <div class="course-feature">
+                                <i class="fas fa-certificate"></i>
+                                <span>Receba seu <strong>certificado</strong></span>
+                            </div>
+                            <a href="https://wa.me/5511999999999" class="btn btn-primary-cta w-100 mt-4">Quero Começar Agora</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card" style="border-top: 5px solid var(--success-green);">
+                        <div class="course-header" style="background: linear-gradient(135deg, var(--success-green) 0%, #00b838 100%);">
+                            <div class="course-badge" style="background: var(--accent-gold); color: var(--primary-blue);">Mais Popular ⭐</div>
+                            <h3 class="mb-3">Investimento Estratégico</h3>
+                            <h2 class="mb-0" style="font-size: 2.5rem;">R$ 297</h2>
+                            <p class="small mt-2" style="opacity: 0.9;">ou 6x de R$ 59</p>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-feature">
+                                <i class="fas fa-video"></i>
+                                <span><strong>35 Aulas</strong> em vídeo 4K</span>
+                            </div>
+                            <div class="course-feature">
+                                <i class="fas fa-clock"></i>
+                                <span><strong>12 horas</strong> de conteúdo</span>
+                            </div>
+                            <div class="course-feature">
+                                <i class="fas fa-book"></i>
+                                <span><strong>Templates</strong> e planilhas</span>
+                            </div>
+                            <div class="course-feature">
+                                <i class="fas fa-users"></i>
+                                <span><strong>Grupo VIP</strong> exclusivo</span>
+                            </div>
+                            <div class="course-feature">
+                                <i class="fas fa-comments"></i>
+                                <span><strong>Sessões ao vivo</strong> mensais</span>
+                            </div>
+                            <div class="course-feature">
+                                <i class="fas fa-certificate"></i>
+                                <span>Certificado <strong>profissional</strong></span>
+                            </div>
+                            <a href="https://wa.me/5511999999999" class="btn btn-primary-cta w-100 mt-4">Aproveitar Oferta</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Course 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <div class="course-badge" style="background: var(--primary-blue);">Avançado</div>
+                            <h3 class="mb-3">Mentoría Completa +</h3>
+                            <h2 class="mb-0" style="font-size: 2.5rem;">R$ 1.997</h2>
+                            <p class="small mt-2" style="opacity: 0.9;">ou 12x de R$ 189</p>
+                        </div>
+                        <div class="course-body">
+                            <div class="course-feature">
+                                <i class="fas fa-video"></i>
+                                <span><strong>Conteúdo completo</strong> + tudo acima</span>
+                            </div>
+                            <div class="course-feature">
+                                <i class="fas fa-phone"></i>
+                                <span><strong>Mentoría 1:1</strong> personalizada</span>
+                            </div>
+                            <div class="course-feature">
+                                <i class="fas fa-chart-pie"></i>
+                                <span><strong>Análise portfólio</strong> exclusiva</span>
+                            </div>
+                            <div class="course-feature">
+                                <i class="fas fa-briefcase"></i>
+                                <span><strong>Plano financeiro</strong> customizado</span>
+                            </div>
+                            <div class="course-feature">
+                                <i class="fas fa-star"></i>
+                                <span><strong>Suporte VIP</strong> permanente</span>
+                            </div>
+                            <div class="course-feature">
+                                <i class="fas fa-rocket"></i>
+                                <span>Acesso <strong>vitalício</strong> a tudo</span>
+                            </div>
+                            <a href="https://wa.me/5511999999999" class="btn btn-primary-cta w-100 mt-4">Começar Mentoría</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="text-center mb-5" style="color: white;">
+                <h2 class="section-title" style="color: white;">O que nossos alunos falam</h2>
+                <p class="section-subtitle">Histórias reais de transformação financeira</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="mb-0">"Consegui sair de uma dívida de R$ 15 mil em 4 meses seguindo o método. As aulas são clara e o suporte é lindo demais!"</p>
+                        <div class="testimonial-author">— Maria Silva, São Paulo</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="mb-0">"Já tenho uma renda passiva de R$ 2 mil por mês só com investimentos. Vale cada centavo investido no curso!"</p>
+                        <div class="testimonial-author">— Carlos Mendes, Rio de Janeiro</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="mb-0">"O conteúdo é tão bom que recomendo para todos meus amigos. Já fiz meu dinheiro trabalhar para mim!"</p>
+                        <div class="testimonial-author">— Juliana Costa, Belo Horizonte</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-5" style="background: var(--light-bg);">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Dúvidas Frequentes</h2>
+                <p class="section-subtitle">Respostas para as principais perguntas</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item border-0 mb-3 shadow-sm rounded">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                    Preciso de experiência anterior para começar?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Não! Nossos cursos são desenvolvidos para iniciantes e avançam progressivamente. Começamos do zero, ensinando conceitos básicos até estratégias profissionais.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 shadow-sm rounded">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                    Quanto tempo leva para começar a lucrar?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Muitos alunos fazem seu primeiro investimento nas primeiras 2 semanas de aula. Os resultados variam, mas a maioria começa a ver retornos em 30-60 dias.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 shadow-sm rounded">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                    Preciso investir muito dinheiro para começar?
+                                </button>
+                            </h2>
+                            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Não! Existem estratégias para começar com R$ 100, R$ 500 ou R$ 1.000. O importante é começar e desenvolver o hábito.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 mb-3 shadow-sm rounded">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                    Qual é a política de reembolso?
+                                </button>
+                            </h2>
+                            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Oferecemos garantia de 7 dias. Se não estiver satisfeito, devolvemos 100% do valor. Sem perguntas.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item border-0 shadow-sm rounded">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                                    Terei acesso vitalício ao curso?
+                                </button>
+                            </h2>
+                            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Sim! Você terá acesso permanente a todo o material. Além disso, recebe atualizações e novos conteúdos gratuitamente.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="cta-final">
+        <div class="container text-center">
+            <h2 class="section-title" style="color: white; margin-bottom: 1rem;">Pronto para Transformar suas Finanças?</h2>
+            <p class="lead mb-4" style="color: rgba(255,255,255,0.9);">
+                Não espere mais. Cada dia que passa é uma oportunidade perdida de fazer seu dinheiro trabalhar para você.
+            </p>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <a href="https://wa.me/5511999999999" class="btn btn-primary-cta btn-lg">
+                    <i class="fab fa-whatsapp me-2"></i>Começar Agora
+                </a>
+                <a href="#courses" class="btn btn-secondary-cta btn-lg">
+                    Ver Cursos <i class="fas fa-arrow-down ms-2"></i>
+                </a>
+            </div>
+            <p class="small mt-4" style="color: rgba(255,255,255,0.7);">
+                <i class="fas fa-lock me-2"></i> Pagamento 100% seguro | <i class="fas fa-redo me-2"></i> Garantia de 7 dias
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <h5 class="fw-bold mb-3">MENTORPRO</h5>
+                    <p>Transformando vidas através da educação financeira de qualidade.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p><strong>Contato:</strong> (11) 99999-9999</p>
+                    <p><strong>Email:</strong> contato@mentorpro.com</p>
+                </div>
+            </div>
+            <hr style="background: rgba(255,255,255,0.1);">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="small mb-2">&copy; 2026 MENTORPRO DESENVOLVIDO POR MULTITECH - Todos os direitos reservados.</p>
+                    <p class="small mb-0">CNPJ: 00.000.000/0001-00</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#" class="text-decoration-none text-light small me-3">Política de Privacidade</a>
+                    <a href="#" class="text-decoration-none text-light small me-3">Termos de Uso</a>
+                    <a href="#" class="text-decoration-none text-light small">Contato</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scroll para links âncora
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Adiciona animação de fade-in aos cards quando vistos
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .course-card, .testimonial-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
